@@ -7,7 +7,8 @@ WORKDIR /var/www
 RUN rm -rf /var/www/html
 RUN ln -s public html
 
-RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+# RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 EXPOSE 9000
 ENTRYPOINT ["php-fpm"]
